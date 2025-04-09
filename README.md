@@ -1,5 +1,5 @@
 # AzProd
-# Sistema de Gestión de Pedidos - AZ Paneles
+# Sistema de Gestión de Pedidos - AZ Prod
 
 **Descripción:**  
 El Sistema de Gestión de Pedidos de AZ Paneles es una plataforma web desarrollada con **Django** para facilitar la gestión de pedidos en tiempo real. Permite a administradores y empleados gestionar pedidos, asignar tareas según el rol (diseñador, impresor, entelador, embolsador) y hacer seguimiento del estado de cada pedido desde cualquier dispositivo.
@@ -82,12 +82,8 @@ az_paneles/
 ├── manage.py
 ├── requirements.txt
 └── db.sqlite3
-Capturas de pantalla
-A continuación se presentan algunas capturas de pantalla del sistema en acción:
 
-
-
-Contribuir
+#Contribuir
 Si deseas contribuir a este proyecto, por favor sigue los siguientes pasos:
 
 Haz un fork del proyecto.
@@ -103,8 +99,4 @@ Abre un Pull Request.
 Licencia
 Este proyecto está bajo la licencia MIT - ver el archivo LICENSE para más detalles.
 
-¡Gracias por usar AZ Paneles! 😊
-
-markdown
-Copiar
-Editar
+¡Gracias por usar AZ Prod! 😊
