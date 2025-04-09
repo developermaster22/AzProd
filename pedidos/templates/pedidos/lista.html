@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Pedidos</title>
+</head>
+<body>
+    <h1>Lista de Pedidos</h1>
+    <ul>
+        {% for pedido in pedidos %}
+            <li>
+                Código: {{ pedido.codigo }}<br>
+                Diseño: <img src="{{ pedido.diseño.url }}" alt="Diseño" width="100"><br>
+                Impresión Realizada: {{ pedido.impresion_realizada }}<br>
+                Entelado Realizado: {{ pedido.entelado_realizado }}<br>
+                Embolsado Realizado: {{ pedido.embolsado_realizado }}<br>
+                Fecha de Creación: {{ pedido.fecha_creacion }}
+            </li>
+        {% empty %}
+            <li>No hay pedidos disponibles.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

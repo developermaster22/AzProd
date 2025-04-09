@@ -1,0 +1,41 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Panel del Administrador</h1>
+    <div class="mt-3">
+      <p>Aquí puedes ver todos los pedidos y gestionarlos según sea necesario.</p>
+
+      <!-- Crear nuevo usuario -->
+      <div class="mb-3">
+        <a href="{% url 'crear_usuario' %}" class="btn btn-success">Crear Nuevo Usuario</a>
+      </div>
+
+      <h3>Usuarios Registrados</h3>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre de Usuario</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for usuario in usuarios %}
+          <tr>
+            <td>{{ usuario.id }}</td>
+            <td>{{ usuario.username }}</td>
+            <td>{{ usuario.email }}</td>
+            <td>
+              <!-- Enlaces para editar y eliminar usuarios -->
+              <a href="{% url 'editar_usuario' usuario.id %}" class="btn btn-warning">Editar</a>
+              <a href="{% url 'eliminar_usuario' usuario.id %}" class="btn btn-danger">Eliminar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

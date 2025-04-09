@@ -1,0 +1,13 @@
+{% extends "pedidos/base_generic.html" %}
+
+{% block content %}
+<h2>Detalles del Pedido {{ pedido.codigo }}</h2>
+<img src="{{ pedido.diseño.url }}" alt="Diseño">
+<p>Impresión: {% if pedido.impresion_realizada %}✔{% else %}❌{% endif %}</p>
+<p>Entelado: {% if pedido.entelado_realizado %}✔{% else %}❌{% endif %}</p>
+<p>Embolsado: {% if pedido.embolsado_realizado %}✔{% else %}❌{% endif %}</p>
+{% if pedido.foto_final %}
+    <p>Foto final:</p>
+    <img src="{{ pedido.foto_final.url }}" alt="Foto final">
+{% endif %}
+{% endblock %}

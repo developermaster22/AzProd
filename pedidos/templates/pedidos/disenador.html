@@ -1,0 +1,66 @@
+
+  <div class="container mt-4">
+    <h1>Panel del Diseñador</h1>
+    <div class="mt-3">
+      <p>Aquí puedes ver los pedidos asignados a ti, trabajar en los diseños y subir nuevos.</p>
+      
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID Pedido</th>
+            <th>Cliente</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pedido in pedidos %}
+          <tr>
+            <td>{{ pedido.id }}</td>
+            <td>{{ pedido.cliente }}</td>
+            <td>{{ pedido.estado }}</td>
+            <td>
+              <a href="{% url 'ver_pedido' pedido.id %}" class="btn btn-primary">Ver Pedido</a>
+              <a href="{% url 'editar_diseno' pedido.id %}" class="btn btn-warning">Editar Diseño</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Panel del Diseñador</h1>
+    <div class="mt-3">
+      <p>Aquí puedes ver los pedidos asignados a ti, trabajar en los diseños y subir nuevos.</p>
+      
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>ID Pedido</th>
+            <th>Cliente</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for pedido in pedidos %}
+          <tr>
+            <td>{{ pedido.id }}</td>
+            <td>{{ pedido.cliente }}</td>
+            <td>{{ pedido.estado }}</td>
+            <td>
+              <a href="{% url 'ver_pedido' pedido.id %}" class="btn btn-primary">Ver Pedido</a>
+              <a href="{% url 'editar_diseno' pedido.id %}" class="btn btn-warning">Editar Diseño</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock %}

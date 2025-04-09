@@ -1,0 +1,98 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <div class="container mt-4">
+    <h1>Bienvenido al Dashboard</h1>
+    <div class="row mt-3">
+      <!-- Resumen de pedidos -->
+      <div class="col-lg-4 col-md-6">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-header">Pedidos Pendientes</div>
+          <div class="card-body">
+            <h5 class="card-title">50</h5>
+            <p class="card-text">Pedidos esperando ser procesados.</p>
+            <a href="#" class="btn btn-light">Ver más</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <div class="card text-white bg-success mb-3">
+          <div class="card-header">Pedidos Completados</div>
+          <div class="card-body">
+            <h5 class="card-title">200</h5>
+            <p class="card-text">Pedidos ya completados.</p>
+            <a href="#" class="btn btn-light">Ver más</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paneles específicos según el rol del usuario -->
+      {% if user.groups.filter(name='Diseñador').exists() %}
+      <div class="col-lg-4 col-md-6">
+        <div class="card text-white bg-info mb-3">
+          <div class="card-header">Diseños Pendientes</div>
+          <div class="card-body">
+            <h5 class="card-title">12</h5>
+            <p class="card-text">Diseños esperando ser aprobados o finalizados.</p>
+            <a href="{% url 'panel_disenador' %}" class="btn btn-light">Ver Diseños</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if user.groups.filter(name='Impresor').exists() %}
+      <div class="col-lg-4 col-md-6">
+        <div class="card text-white bg-warning mb-3">
+          <div class="card-header">Pedidos para Imprimir</div>
+          <div class="card-body">
+            <h5 class="card-title">15</h5>
+            <p class="card-text">Pedidos listos para ser impresos.</p>
+            <a href="{% url 'panel_impresor' %}" class="btn btn-light">Ver Pedidos</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
+      {% if user.groups.filter(name='Entelador').exists() %}
+      <div class="col-lg-4 col-md-6">
+        <div class="card text-white bg-danger mb-3">
+          <div class="card-header">Pedidos para Entelar</div>
+          <div class="card-body">
+            <h5 class="card-title">8</h5>
+            <p class="card-text">Pedidos esperando ser entelados.</p>
+            <a href="{% url 'panel_entelador' %}" class="btn btn-light">Ver Pedidos</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
+      {% if user.groups.filter(name='Embolsador').exists() %}
+      <div class="col-lg-4 col-md-6">
+        <div class="card text-white bg-secondary mb-3">
+          <div class="card-header">Pedidos para Embolsar</div>
+          <div class="card-body">
+            <h5 class="card-title">25</h5>
+            <p class="card-text">Pedidos listos para ser empaquetados.</p>
+            <a href="{% url 'panel_embolsador' %}" class="btn btn-light">Ver Pedidos</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
+      {% if user.groups.filter(name='Administrador').exists() %}
+      <div class="col-lg-4 col-md-6">
+        <div class="card text-white bg-dark mb-3">
+          <div class="card-header">Gestión de Pedidos</div>
+          <div class="card-body">
+            <h5 class="card-title">300</h5>
+            <p class="card-text">Ver todos los pedidos y gestionarlos.</p>
+            <a href="{% url 'panel_administrador' %}" class="btn btn-light">Administrar Pedidos</a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
+    </div>
+  </div>
+{% endblock %}
